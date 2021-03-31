@@ -1,9 +1,10 @@
-import HomePage from './home';
+import Home from './home';
 import Scan from './scan';
 import Registration from "./register";
-
+import Login from "./login"
 export {
-    HomePage,
+    Home,
     Scan,
-    Registration
+    Registration,
+    Login
 }

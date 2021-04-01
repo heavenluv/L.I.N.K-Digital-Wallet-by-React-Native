@@ -195,7 +195,7 @@ const Scan = ({navigation}) => {
                   alignItems: 'center',
                   marginLeft: SIZES.padding * 2
                 }}
-                onPress={() => navigation.navigate("Payment")}
+                onPress={() => navigation.navigate("PaidCode")}
             >
               <View
                   style={{

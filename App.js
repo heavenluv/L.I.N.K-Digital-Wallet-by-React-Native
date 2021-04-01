@@ -1,12 +1,13 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { Registration, Login, ScanPayment, PhonePayment } from "./screens";
+import { Registration, Login, ScanPayment, PhonePayment, PaidCode } from "./screens";
 //import fonts from "./assets/fonts"
 import React, { useState, useEffect } from 'react'
 import * as font from 'expo-font'
 import { AppLoading } from 'expo-font'
 import { startClock } from 'react-native-reanimated';
 import Tabs from "./navigation/tabs"
+import TopTabs from "./navigation/top_nav"
 const theme = {
     ...DefaultTheme,
     colors: {
@@ -32,6 +33,7 @@ function App() {
                 <Stack.Screen name='Home' component={Tabs} />
                 <Stack.Screen name="Payment" component={ScanPayment} />
                 <Stack.Screen name="TransferPhone" component={PhonePayment} />
+                <Stack.Screen name="PaidCode" component={TopTabs} />
 
             </Stack.Navigator>
         </NavigationContainer>

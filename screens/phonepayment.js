@@ -33,32 +33,31 @@ const PhonePayment = ({ navigation }) => {
   const [filteredArea, setFilteredArea] = useState([])
 
   const usersdata = [
-  {
-    id: 1,
-    img: icons.user,
-    title: 'Vin Diesel',
-    phoneno: "+60123456789"
-  },
-  {
-    id: 2,
-    img: icons.user,
-    title: 'Smirk',
-    phoneno: "+60123456789"
-  },
-  {
-    id: 3,
-    img: icons.user,
-    title: 'Lisa',
-    phoneno: "+60123456789"
-  },
-  {
-    id: 4,
-    img: icons.user,
-    title: 'Ali Abu',
-    phoneno: "+60123456789"
-  }
-]
-
+    {
+      id: 1,
+      img: icons.user,
+      title: 'Vin Diesel',
+      phoneno: '+60123456789'
+    },
+    {
+      id: 2,
+      img: icons.user,
+      title: 'Smirk',
+      phoneno: '+60123456789'
+    },
+    {
+      id: 3,
+      img: icons.user,
+      title: 'Lisa',
+      phoneno: '+60123456789'
+    },
+    {
+      id: 4,
+      img: icons.user,
+      title: 'Ali Abu',
+      phoneno: '+60123456789'
+    }
+  ]
 
   useEffect(() => {
     fetch('https://restcountries.eu/rest/v2/all')
@@ -128,8 +127,8 @@ const PhonePayment = ({ navigation }) => {
       )
     }
 
-    function mergePhoneNo({callingcode, phonenumber}) {
-        console.log(callingcode.toString() + phonenumber.toString())
+    function mergePhoneNo ({ callingcode, phonenumber }) {
+      console.log(callingcode.toString() + phonenumber.toString())
     }
 
     return (
@@ -268,11 +267,13 @@ const PhonePayment = ({ navigation }) => {
             paddingHorizontal: SIZES.padding
           }}
         >
-          <View style={{ marginTop: SIZES.padding, width:"100%" }}>
+          <View style={{ marginTop: SIZES.padding, width: '100%' }}>
             <Text style={{ color: COLORS.black, ...FONTS.body3 }}>
               Phone Number
             </Text>
-            <View style={{ flexDirection: 'row',justifyContent: 'space-between', }}>
+            <View
+              style={{ flexDirection: 'row', justifyContent: 'space-between' }}
+            >
               <TouchableOpacity
                 style={{
                   width: 85,
@@ -320,39 +321,43 @@ const PhonePayment = ({ navigation }) => {
                   height: 40,
                   color: COLORS.black,
                   ...FONTS.body4,
-                  paddingLeft:5
+                  paddingLeft: 5
                 }}
+                keyboardType = 'numeric'
                 placeholder="Enter recipient's phone number"
                 placeholderTextColor='rgba(0, 0, 0, 0.5)'
                 selectionColor={COLORS.gray}
                 value={phonenumber}
-                onChangeText={(phonenumber) => setPhoneNumber(phonenumber)}
-                onSubmitEditing={() => console.log(callingcode.toString() + phonenumber.toString())}
+                onChangeText={phonenumber => setPhoneNumber(phonenumber)}
+                onSubmitEditing={() =>
+                  //console.log(callingcode.toString() + phonenumber.toString())
+                  navigation.navigate("Payment")
+                }
                 maxLength={10}
               />
-                <TouchableOpacity
-                    style={{
-                        flex:0.2,
-                        paddingVertical: 20
-                    }}
-                    onPress={() => setPhoneNumber('')}    
-                >
-                    <Image
-                        style={{
-                            width:20,
-                            height:20,
-                            tintColor: COLORS.black
-                        }}
-                        source={icons.close}
-                    />
-                </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  flex: 0.2,
+                  paddingVertical: 20
+                }}
+                onPress={() => setPhoneNumber('')}
+              >
+                <Image
+                  style={{
+                    width: 20,
+                    height: 20,
+                    tintColor: COLORS.black
+                  }}
+                  source={icons.close}
+                />
+              </TouchableOpacity>
             </View>
           </View>
         </View>
       </View>
     )
   }
-function renderNameList () {
+  function renderBottom () {
     return (
       <View
         style={{
@@ -376,14 +381,102 @@ function renderNameList () {
             paddingHorizontal: SIZES.padding
           }}
         >
-         <FlatList>
-
-         </FlatList>
+          {renderNameList()}
         </View>
       </View>
     )
   }
 
+  function renderNameList () {
+    const Header = () => (
+      <View style={{ marginBottom: SIZES.padding * 2 }}>
+        <Text style={{ ...FONTS.h3, fontWeight: 'bold' }}>
+          Recent Transfer List
+        </Text>
+      </View>
+    )
+
+    const renderItem = ({ item }) => (
+      <TouchableOpacity
+        style={{
+          marginBottom: SIZES.padding * 2,
+          width: screenWidth - SIZES.padding * 9,
+          alignItems: 'center',
+          flexDirection: 'row'
+        }}
+        onPress={() => console.log('hi')}
+      >
+        <View
+          style={{
+            height: screenWidth / 8,
+            width: screenWidth / 8,
+            marginBottom: 5,
+            borderRadius: 20,
+            backgroundColor: COLORS.primary,
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <Image
+            source={item.img}
+            resizeMode='contain'
+            style={{
+              height: screenWidth / 13,
+              width: screenWidth / 13,
+              tintColor: item.black
+            }}
+          />
+        </View>
+        <View
+          style={{
+            marginHorizontal: SIZES.padding,
+            marginTop: SIZES.padding,
+            backgroundColor: COLORS.lightGray,
+            borderRadius: 25,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 10,
+            width: screenWidth / 1.6
+          }}
+        >
+          <Text
+            style={{
+              ...FONTS.h4,
+              fontWeight: 'bold',
+              height: screenWidth / 8,
+              flex: 1,
+              paddingTop: screenWidth / 28,
+              paddingHorizontal: 10
+            }}
+          >
+            {item.title}
+          </Text>
+          <Text
+            style={{
+              ...FONTS.body4,
+              flex: 1,
+              height: screenWidth / 8,
+              paddingTop: screenWidth / 28,
+              paddingHorizontal: 10
+            }}
+          >
+            {item.phoneno}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    )
+    return (
+      <FlatList
+        ListHeaderComponent={Header}
+        data={usersdata}
+        numColumns={1}
+        keyExtractor={item => `${item.id}`}
+        renderItem={renderItem}
+        style={{ marginTop: SIZES.padding * 2 }}
+      />
+    )
+  }
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.primary }}>
@@ -392,7 +485,7 @@ function renderNameList () {
         style={{
           marginVertical: SIZES.padding * 2,
           marginHorizontal: SIZES.padding * 2,
-          height: screenHeight * 0.85,
+          height: screenHeight * 0.8,
           width: screenWidth - SIZES.padding * 4,
           justifyContent: 'flex-start',
           alignItems: 'center',
@@ -402,7 +495,7 @@ function renderNameList () {
         }}
       >
         {renderForms()}
-        {renderNameList()}
+        {renderBottom()}
         {renderAreaCodesModal()}
       </View>
     </SafeAreaView>

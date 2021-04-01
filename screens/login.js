@@ -284,7 +284,6 @@ const Login = ({navigation}) => {
 
   function renderAreaCodesModal() {
 
-
     const renderItem = ({item}) => {
       return (
         <TouchableOpacity

@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { Registration, Login } from "./screens";
+import { Registration, Login, ScanPayment, PhonePayment } from "./screens";
 //import fonts from "./assets/fonts"
 import React, { useState, useEffect } from 'react'
 import * as font from 'expo-font'
@@ -30,6 +30,8 @@ function App() {
                 <Stack.Screen name="Registration" component={Registration} />
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name='Home' component={Tabs} />
+                <Stack.Screen name="Payment" component={ScanPayment} />
+                <Stack.Screen name="TransferPhone" component={PhonePayment} />
 
             </Stack.Navigator>
         </NavigationContainer>

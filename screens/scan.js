@@ -163,7 +163,7 @@ const Scan = ({navigation}) => {
                   flexDirection: 'row',
                   alignItems: 'center'
                 }}
-                onPress={() => console.log("Phone Number")}
+                onPress={() => navigation.navigate("TransferPhone")}
             >
               <View
                   style={{
@@ -195,7 +195,7 @@ const Scan = ({navigation}) => {
                   alignItems: 'center',
                   marginLeft: SIZES.padding * 2
                 }}
-                onPress={() => console.log("Barcode")}
+                onPress={() => navigation.navigate("Payment")}
             >
               <View
                   style={{

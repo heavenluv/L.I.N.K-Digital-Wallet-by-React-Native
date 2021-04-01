@@ -19,6 +19,8 @@ const wallet = require("../assets/icons/wallet.png");
 const camera = require("../assets/icons/camera.png")
 const paid = require('../assets/icons/paid.png')
 const transfer = require('../assets/icons/transfer.png')
+const receive = require('../assets/icons/receive.png')
+
 
 
 export default {
@@ -42,5 +44,6 @@ export default {
   wallet,
   camera,
   paid,
-  transfer
+  transfer,
+  receive
 };

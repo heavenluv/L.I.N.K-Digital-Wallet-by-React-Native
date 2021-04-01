@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { Registration, Login, ScanPayment, PhonePayment, PaidCode } from "./screens";
+import { Registration, Login, ScanPayment, PhonePayment, PaidCode, ReceivedCode } from "./screens";
 //import fonts from "./assets/fonts"
 import React, { useState, useEffect } from 'react'
 import * as font from 'expo-font'

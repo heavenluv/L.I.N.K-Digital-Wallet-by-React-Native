@@ -389,7 +389,7 @@ const Registration = ({ navigation }) => {
                 value={search}
               />
               <FlatList
-                data={areas}
+                data={filteredArea}
                 renderItem={renderItem}
                 keyExtractor={item => item.code}
                 showsVerticalScrollIndicator={false}

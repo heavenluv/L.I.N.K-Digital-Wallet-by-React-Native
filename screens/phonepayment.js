@@ -23,7 +23,7 @@ const PhonePayment = ({ navigation }) => {
   const screenWidth = dimensions.current.width
   const screenHeight = dimensions.current.height
 
-  const [phonenumber, setPhoneNumber] = useState(0)
+  const [phonenumber, setPhoneNumber] = useState('')
   const [description, setDescription] = useState('')
   const [areas, setArea] = useState([])
   const [selectedArea, setSelectedArea] = useState(null)
@@ -327,7 +327,7 @@ const PhonePayment = ({ navigation }) => {
                 placeholder="Enter recipient's phone number"
                 placeholderTextColor='rgba(0, 0, 0, 0.5)'
                 selectionColor={COLORS.gray}
-                value={phonenumber}
+                value={phonenumber.toString()}
                 onChangeText={phonenumber => setPhoneNumber(phonenumber)}
                 onSubmitEditing={() =>
                   //console.log(callingcode.toString() + phonenumber.toString())
